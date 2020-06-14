@@ -1,0 +1,16 @@
+PDF AZUL
+
+	la shared pool
+
+		tamaño de las librerias definido por -> SHARED_POOL_SIZE (CONTIENE DEFINICIONES Y PRIVILEGIOS DE LAS TABLAS Y LAS COLUMNAS)
+
+	el buffer cache de la BD
+
+		cantidad de buffers -> DB_BLOCK_BUFFERS
+		tamaño del buffer -> DB_BLOCK_SIZE
+		(ALMACENA LOS BLOQUES UTILIZADOS RECIENTEMENTE)
+
+	buffer redo log
+
+		tamaño del buffer -> LOG_BUFFER
+		(GUARDA LOS CAMBIOS HECHOS EN LA INSTANCIA)

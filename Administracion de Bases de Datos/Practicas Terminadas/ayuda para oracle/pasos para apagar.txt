@@ -1,0 +1,19 @@
+«"PASOS PARA APAGAR EL SISTEMA"»
+
+1. Derribar oracle
+emctl stop dbconsole
+
+2. Derribar base de datos
+sqlplus sys as sysdba 
+
+shutdow immediate
+
+exit
+
+3. Desmontar disco
+su 
+
+umount /databases
+
+
+«LISTO»

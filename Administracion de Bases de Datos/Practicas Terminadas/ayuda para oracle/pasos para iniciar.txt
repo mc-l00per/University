@@ -1,0 +1,27 @@
+""PASOS PARA CARGAR LA BASE DE DATOS DE ORACLE""
+
+
+1. montar la unidad la eso hay que ser 
+	mount /dev/sdb1 /databases
+
+2. iniciar los servicios relacionados con la bases de datos
+	lsnrctl start
+	sqlplus /nolog
+	
+	connect sys as sysdba
+	
+	startup
+	
+	exit
+	
+3. iniciar el navegador y la base de datos
+	emctl start dbconsole
+
+	https://pclab.localdomain:1158/em
+	
+	user: sys
+	key: ABD3oradba
+	servicio: sysdba
+	
+	
+	"LISTO A TRABAJAR"
