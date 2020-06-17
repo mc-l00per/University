@@ -1,0 +1,97 @@
+Orden uptime
+Muestra hora actual, tiempo que lleva en marcha el sistema, numero de users conectados y carga media del sistema de los 1,5 y 15 minutos
+
+Orden w
+Muestra los usuario conectados y lo que estan haciendo.
+
+Orden time
+Mide el tiempo de ejecución de un programa y muestra un resumen del uso de recursos del sistema.
+Muestra el tiempo que ha estado ejecutandos(real), el tiempo que lo ha ejecutado en modo usuario (user) y el tiempo usando en modo supervisor (sys).
+
+Orden nice y renice
+Planificación por prioridades. Para establecer la prioridad de un proceso a un valor distinto del por defecto se utiliza nice en el rango [-20,19]. Valor negativo es el más alto y solo se puede hacer en modo root.
+
+Orden pstree
+Visualiza el arbol de procesos en ejecucion
+Las opciones son:
+-a → muestra los argumentos de la linea de ordendes
+-A → usa caracteres ASCII par dibujar el arbol
+-G → usa caracteres VT100
+-h → resalta el proceso actual y sus antepasados
+-H → igual que -h pero para que el proceso que se esspecifique
+-l → formato largo
+-n → ordena procesos por PID del antecesor en vez de por nombre
+-p → desactiva el mostrar los PIDs entre parentesis despues del nombre del proceso
+-u → Si uid difiere del uid del padre, se pone entre parentesis
+-V → Visualiza informacion sbre la version
+-Z → Muestra el contexteo de seguridad para cada proceso
+
+Orden ps
+Muestra información sobre los procesos en ejecucion:
+    USER: usuario que lanzo el programa
+    PID: id del proceso
+    PPID: identificador del proceso padre
+    %CPU: % entre el tiempo usado realmente y el que lleva en ejecucion
+    %MEM: fraccion de memoria consumida
+    VSZ: tamaño virtual del proceso en KB
+    RS: memoria real usada en KB
+    TTY: terminal asociado con el proceso
+    STAT: estado del proceso( Running, Sleeping, sTopped, Zombie, Durmiendo, N(prioridad baja),     <(prioridad alta), s (lider de sesion), l(multithread), + (foreground) y bLoqued)
+ps se ejecuta normalmente con -ef : “e” → todo proceso que esté en el sistema y “f” → informacion completa
+
+Orden top
+Muestra tareas que hacen más uso de la CPU en tiempo real.
+•  Cambiar la prioridad de alguno utilizando la opción “r”.
+•  Matar o enviar una señal con la opción “k”.
+•  Ordenarlos según diferentes criterios (por PID con “N”, uso de CPU con “P”, tiempo con “A”, etc.).
+•  Con “n” se cambia el número de procesos que se muestran.
+•  Para salir se utiliza la letra “q”.
+
+Orden mpstat
+Muestra estadisticas del procesador del sistema junto con la media global de todos los datos mostrados.
+La informacion que muestra es:
+CPU (n.º procesador)
+%user (% de uso de la CPU con tareas nivel usuario)
+%nice (% de uso de la CPU con prioridad nice >0)
+%sys (% CPU con tareas del sistema)
+%iowait (% CPU desocupada)
+%irq (% CPU interrupciones hardware)
+%soft (% tiempo CPU con interrupciones software)
+%idle (% timepo CPU desocupada sin peticiones de disco pendientes)
+intr/s (n.º interrupciones por segundo recibidas por el procesador)
+Se ejecuta con mpstat [intervalo] [numero]  donde intervalo indica cada cuantos segundos debe mostrar datos, y numero cuantros muestreos  se solicitan.
+
+Control y gestión de memoria
+
+Orden free
+Consume menos recursos que top que sirve para ver el uso actual de memoria informando del consumo de la memoria real o principal (ram) y de la memoria de espacio de intercambio (swap)
+
+Orden wmstat
+Supervisar el sistema mostrando infomación de memoria pero también de procesos, E/S y CPU.
+Se ejecuta vmstat [tiempo_muestreo] [iteraciones] 
+La columna us muestra programas o peticiones de usuario, la columna sy tareas del sistema, esperas E/S, actualización de estadísticas, gestión de prioridades, etc y la columna id cuando no está haciendo nada.
+La columna r muestra cuántos procesos están en cola de ejecución, la columna wa indica que no hay process en swap, la columna so indica que se está incrementando el uso del espacio de intercambio y la columna free la memoria principal libre se está agotando.
+
+Control y gestión de dispositivos de E/S
+
+Consulta de información de archivos
+Para ver la información de los archivos de un directorio o datos de un archivo utilizamos ls.
+Las opciones son :
+    -l para mostrar mas información
+    -n muestra ID de usuarios y grupos
+    -la muestra lo mismo que -l pero con archivos ocultos
+    -li lo mismo que -l pero con inodos
+    -lh muestra lo mismo que -l pero el tamaño se lee en KB, MB o GB.
+    -X ordena alfabeticamente por directorios
+    -t ordena por tiempo de modificacion
+    -u ordena por tiempo de acceso
+    -c ordena por ctime (timepo de ultima modificacion)
+
+Para ver los metadatos de cada SA montado utilizamos df, donde podemos ver capacidad de almacenamiento total, espacio usado y espacio libre, punto de montaje, etc
+Para ver el espacio en disco que gasta un directorio de la jerarquia de directorios utilizamos du. La ultima linea muestra la cantidad total de bloques de disco utilizados.
+
+Enlaces a archivos
+Hay dos tipos de enlaces:
+    Enlaces simbolicos que hacen referencia al nombre de un archivo 
+    Enlaces duros que hacen referencia a los metadatos de un archivo
+Para crear enlaces duros utilizamos ln <nombre_archivo> <nuevo_nombre>

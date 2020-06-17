@@ -1,0 +1,144 @@
+EJERCICIO 1
+    whoami ->  nos muestra el nombre del usuario actual
+
+    useradd || adduser -> generan usuarios nuevos segun los valores establecidos por defecto para la creacion de usuarios en /etc/default/useradd y /etc/login.defs
+
+    usermod -> modifica una cuenta de usuario que ya existe
+    userdel -> elimina una cuenta de usuario por defecto no borra el home
+    newusers -> genera un usuario nuevo insertando los parametros que contiene /etc/password
+
+    FICHEROS QUE CONTIENEN LA DEFINICION DE TERMINAR
+    .bash_profile -> se ejecuta en el login, nos proporsiona poder tener alias, etc desde el inicio de session
+    .bashrc -> este contenido se ejecuta cada vez que se inicia un shell
+    .bash_logout -> son ejecutables para que se ejecuten cuando se cierren la shell
+
+useradd
+        Modo de uso: useradd [opciones] USUARIO
+                     useradd -D
+                     useradd -D [opciones]
+
+        Opciones:
+              -b, --base-dir DIR_BASE       directorio base para el directorio personal de la nueva cuenta
+              -c, --comment COMENTARIO      campo GECOS de la nueva cuenta
+              -d, --home-dir DIR_PERSONAL   directorio personal de la nueva cuenta
+              -D, --defaults                imprime o cambia la configuración predeterminada de useradd
+              -e, --expiredate FECHA_CADUCIDAD  fecha de caducidad de la nueva cuenta
+              -f, --inactive INACTIVO       periodo de inactividad de la contraseña de la nueva cuenta
+              -g, --gid GRUPO               nombre o identificador del grupo primario de la nueva cuenta
+              -G, --groups GRUPOS           lista de grupos suplementarios de la nueva cuenta
+              -h, --help                    muestra este mensaje de ayuda y termina
+              -k, --skel DIR_SKEL           utiliza este directorio «skeleton» alternativo
+              -K, --key CLAVE=VALOR         sobrescribe los valores predeterminados de «/etc/login.defs»
+              -l, --no-log-init             no añade el usuario a las bases de datos de lastlog y faillog
+              -m, --create-home             crea el directorio personal del usuario
+              -M, --no-create-home          no crea el directorio personal del usuario
+              -N, --no-user-group           no crea un grupo con el mismo nombre que el usuario
+              -o, --non-unique              permite crear usuarios con identificadores (UID) duplicados (no únicos)
+              -p, --password CONTRASEÑA     contraseña cifrada de la nueva cuenta
+              -r, --system                  crea una cuenta del sistema
+              -R, --root CHROOT_DIR         directory to chroot into
+              -s, --shell CONSOLA           consola de acceso de la nueva cuenta
+              -u, --uid UID                 identificador del usuario de la nueva cuenta
+              -U, --user-group              crea un grupo con el mismo nombre que el usuario
+
+
+OPTIONS passwd
+       The options which apply to the passwd command are:
+
+       -a, --all
+           This option can be used only with -S and causes show status for all users.
+
+       -d, --delete
+           Delete a user's password (make it empty). This is a quick way to disable a password for an account. It will set the named account passwordless.
+
+       -e, --expire
+           Immediately expire an account's password. This in effect can force a user to change his/her password at the user's next login.
+
+       -h, --help
+           Display help message and exit.
+
+       -i, --inactive INACTIVE
+           This option is used to disable an account after the password has been expired for a number of days. After a user account has had an expired password for INACTIVE days, the user may no longer sign
+           on to the account.
+
+       -k, --keep-tokens
+           Indicate password change should be performed only for expired authentication tokens (passwords). The user wishes to keep their non-expired tokens as before.
+
+       -l, --lock
+           Lock the password of the named account. This option disables a password by changing it to a value which matches no possible encrypted value (it adds a '!' at the beginning of the password).
+
+           Note that this does not disable the account. The user may still be able to login using another authentication token (e.g. an SSH key). To disable the account, administrators should use usermod
+           --expiredate 1 (this set the account's expire date to Jan 2, 1970).
+
+           Users with a locked password are not allowed to change their password.
+
+       -n, --mindays MIN_DAYS
+           Set the minimum number of days between password changes to MIN_DAYS. A value of zero for this field indicates that the user may change his/her password at any time.
+
+       -q, --quiet
+           Quiet mode.
+
+       -r, --repository REPOSITORY
+           change password in REPOSITORY repository
+
+       -R, --root CHROOT_DIR
+           Apply changes in the CHROOT_DIR directory and use the configuration files from the CHROOT_DIR directory.
+
+        -S, --status
+           Display account status information. The status information consists of 7 fields. The first field is the user's login name. The second field indicates if the user account has a locked password (L),
+           has no password (NP), or has a usable password (P). The third field gives the date of the last password change. The next four fields are the minimum age, maximum age, warning period, and
+           inactivity period for the password. These ages are expressed in days.
+
+       -u, --unlock
+           Unlock the password of the named account. This option re-enables a password by changing the password back to its previous value (to the value before using the -l option).
+
+       -w, --warndays WARN_DAYS
+           Set the number of days of warning before a password change is required. The WARN_DAYS option is the number of days prior to the password expiring that a user will be warned that his/her password
+           is about to expire.
+
+       -x, --maxdays MAX_DAYS
+           Set the maximum number of days a password remains valid. After MAX_DAYS, the password is required to be changed.
+
+    cat /etc/passwd
+        usuario/x=clave/numero_grupo/directorio_home/shell
+        root:x:0:0:root:/root:/bin/bash
+
+ENVEJECIMIENTO DE CUENTAS
+    changed -> fecha del último cambio de contraseña
+    minlife -> número de días que han de pasar para poder cambiar la contraseña
+    maxlife -> número de días máximo que puede estar con la misma contraseña sin cambiarla
+    warn -> cuántos días antes de que la contraseña expire (maxlife) será informado sobre ello,
+    indicándole que tiene que cambiarla
+    inactive -> número de días después de que la contraseña expire que la cuenta se deshabilitará de forma automática si no ha sido cambiada
+    expired -> fecha en la que la cuenta expira y se deshabilita de forma automática
+
+    chage -d ult_día usuario -> fecha del último cambio de password
+    chage -m min_días usuario -> no de días que han de pasar para poder cambiar la contraseña
+    chage -M max_días usuario -> no de días máximo que puede estar con la misma contraseña sin cambiarla
+    chage -W warn_días usuario -> cuántos días antes de que la contraseña expire (maxlife) será avisado de ello, indicándole que tiene que cambiarla
+    chage -I inac_días usuario -> no de días después de que la contraseña expire que la cuenta se deshabilitará de forma automática si la contraseña no ha sido cambiada
+    chage -E exp_días usuario -> fecha en la que la cuenta expira y se deshabilita de forma automática
+
+GESTION DE GRUPOS
+     Archivo de configuración /etc/group. Cada línea de este archivo presenta el siguiente formato: nombre:x:gid:lista de usuarios
+
+     groupadd grupo -> crea un nuevo grupo
+    groupmod grupo -> modifica un grupo existente
+    groupdel grupo -> elimina un grupo
+    newgrp grupo -> cambia de grupo activo (lanza un shell con ese grupo)
+    gpasswd grupo -> asigna una contraseña a un grupo
+    gpasswd -a user grupo -> añade un usuario a un grupo
+    groups [usuario] -> informa de los grupos a los que pertenece un usuario
+    id [usuario] -> lista el identificador del usuario y los grupos a los que pertenece
+    grpck -> comprueba la consistencia del archivo de grupos
+
+BUSQUEDAS DE FICHEROS
+    find -name Fedora -> nos muestra la ruta absoluta del kernet que estamos usando en el laboratorio
+
+    los ficheros temporales para que no se borren entre arranque y apagado del sistema los situaremos /var/tmp
+
+    El archivo /etc/fstab se encuentra comúnmente en sistemas Unix como parte de la configuración del sistema. Lo más destacado de este fichero es la lista de discos y particiones disponibles. En ella se indican cómo montar cada dispositivo y qué configuración utilizar.
+    - El archivo /etc/mtab es un archivo de información del sistema, comúnmente en Unix. Este archivo lista todos actualmente los sistemas de ficheros montados junto con sus opciones de inicialización. mtab tiene mucho en común con fstab, pero la diferencia principal es que este último enumera todos los sistemas de archivos disponibles.
+    - El archivo /proc/filesystems muestra una lista de los tipos del sistema de archivos soportados actualmente por el kernel.
+    - El archivo /proc/mounts proporciona una lista de todos los montajes en uso por el sistema. La salida de datos que encontramos aquí se parece a /etc/mtab, excepto que /proc/mounts está más actualizada
+

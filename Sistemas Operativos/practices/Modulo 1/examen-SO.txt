@@ -1,0 +1,138 @@
+NOMBRE: Antonio Rodríguez Alaminos
+
+ACTIVIDAD 1
+  A:
+	Para crear un usuario:
+	  # useradd user_examen
+	  
+	Para crear el grupo:
+	  # groupadd grupo-examen
+	  
+	Para asignar un usuario a un grupo
+	  # gpasswd -­a user_examen grupo-examen
+	  
+	  Muestra el siguiente mensaje:
+	  Adding user user_examen to group grupo-examen
+
+  B:
+	Los archivos son:
+	  /etc/passwd
+		user_examen:x:501:501::/home/user_examen:/bin/bash
+	  /etc/group
+		user_examen:x:501:
+		grupo-examen:x:502:user_examen
+		
+ACTIVIDAD 2
+  A:
+	Para crear el archivo:
+	  Primero creamos un archivo de bloque
+		# mknod /dev/loop0 b 7 0
+	  Continuamos generando un fichero de 40Mb
+		# dd if=/dev/zero of=/root/archivo_SA40 bs=4k count=10000
+	  Ahora asociamos los dos archivos
+		#  losetup /dev/loop0 /root/archivo_SA40
+	  Y por ultimo le damos formato
+		# mke2fs ­c /dev/loop0 ­t ext2 ­L LABEL_ext2
+		No me lo permite obtengo el siguiente informe:
+		  mke2fs 1.41.12 (17-May-2010)
+		  mke2fs: invalid blocks count - /dev/loop0
+		  No se pueden montar fichero de bloques
+		  
+  B:
+	En mi pc, porque en uml no me lo muestra. Para ver todos los ficheros que podemos montar
+	  # fdisk -l
+	  Nos muestra el siguiente mensaje
+		Disk /dev/sda: 320.1 GB, 320072933376 bytes, 625142448 sectors
+		Units = sectors of 1 * 512 = 512 bytes
+		Sector size (logical/physical): 512 bytes / 4096 bytes
+		I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+		Disk label type: dos
+		Identificador del disco: 0x00055255
+
+		Disposit. Inicio    Comienzo      Fin      Bloques  Id  Sistema
+		/dev/sda1            2048      718847      358400    7  HPFS/NTFS/exFAT
+		/dev/sda2          718848   520282111   259781632    7  HPFS/NTFS/exFAT
+		/dev/sda3   *   520282112   625141759    52429824    f  W95 Ext'd (LBA)
+		/dev/sda5       520284160   524507135     2111488   82  Linux swap / Solaris
+		/dev/sda6       524509184   565022719    20256768   83  Linux
+		/dev/sda7       565024768   625121279    30048256   83  Linux
+		
+  C:
+	Uno de los errores mas típicos es que la librería o dependencias no encuentren es paquete que deseamos 
+	mi solución a sido introducirlo a mano, o instalarlo localmente.
+	  # yum localinstall nombre_paquete o # rpm -i /direccion_paquete/nombre_paquete
+	Y por suerte no tenido ninguno mas.
+	
+ACTIVIDAD 3
+  A:
+	Para ver los procesos activos utilizamos
+	  #  ps -A
+	  Nos muestra todos los procesos que están ejecutándose
+		PID TTY          TIME CMD
+		  1 ?        00:00:00 init
+		  2 ?        00:00:00 kthreadd
+		  3 ?        00:00:00 ksoftirqd/0
+		  4 ?        00:00:00 kworker/0:0
+		  5 ?        00:00:00 kworker/u:0
+		  6 ?        00:00:00 rcu_kthread
+		  7 ?        00:00:00 watchdog/0
+		  8 ?        00:00:00 cpuset
+		  9 ?        00:00:00 khelper
+		 10 ?        00:00:00 kworker/u:1
+		115 ?        00:00:00 sync_supers
+		117 ?        00:00:00 bdi-default
+		118 ?        00:00:00 kblockd
+		134 ?        00:00:00 rpciod
+		135 ?        00:00:00 kworker/0:1
+		143 ?        00:00:00 khungtaskd
+		144 ?        00:00:00 kswapd0
+		192 ?        00:00:00 fsnotify_mark
+		216 ?        00:00:00 ecryptfs-kthrea
+		218 ?        00:00:00 nfsiod
+		240 ?        00:00:00 glock_workqueue
+		241 ?        00:00:00 delete_workqueu
+		246 ?        00:00:00 gfs_recovery
+		248 ?        00:00:00 crypto
+		263 ?        00:00:00 kthrotld
+		961 ?        00:00:00 jbd2/ubda-8
+		962 ?        00:00:00 ext4-dio-unwrit
+	   1021 ?        00:00:00 flush-98:0
+	   1061 ?        00:00:00 kauditd
+	   1105 ?        00:00:00 auditd
+	   1123 ?        00:00:00 rsyslogd
+	   1148 ?        00:00:00 sshd
+	   1174 ?        00:00:00 sendmail
+	   1185 ?        00:00:00 crond
+	   1198 ?        00:00:00 atd
+	   1210 ?        00:00:00 login
+	   1211 tty0     00:00:00 bash
+	   1240 ?        00:00:00 loop0
+	   1254 ?        00:00:00 anacron
+	   1270 tty0     00:00:00 fdisk
+	   1275 tty0     00:00:00 ps
+
+  B:
+	Para saber si un enlace es simbólico tan solo tenemos que
+	  # ls -li
+	  Un ejemplo es el siguiente
+		14251 lrwxrwxrwxr 1 root root 11 Oct 23 19:17 softLink -> archivo.txt
+		Vemos claramente que enlaza (->) archivo.txt
+		Con la orden
+		  # du -b /direccion_enlace/enlace
+		El tamaño es de 4096 bytes
+  C:
+	El script que necesitamos es el siguiente
+	  #/bin/bash
+	  find $1 -mtime 3 > guion.txt
+	  Como en la maquina no hay ningún archivo con mas de 3 días porque los borro en cada sesión me muestra nada
+	  pero si pongo que muestre los de las ultimas 24h me salen los que he generado hoy.
+  D:
+	Modificamos el script anterior
+	  #/bin/bash
+	  find $HOME -mtime 3 >> log_archivos
+	  Editamos el fichero de cron
+	  # crontab -e
+	  Escribimos la siguiente orden
+		0 9 * 11 * /root/script.bash //el script esta en el directorio root
+	  Como en la maquina no hay ningún archivo con mas de 3 días porque los borro en cada sesión me muestra nada
+	  pero si pongo que muestre los de las ultimas 24h me salen los que he generado hoy.

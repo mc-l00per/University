@@ -1,0 +1,73 @@
+#/bin/bash
+
+#generamos los ficheros que utilizaremos para los disco fisticios
+mknod /dev/loop0 b 7 0 
+mknod /dev/loop1 b 7 1
+
+#generamos ficheros con un peso
+dd if=/dev/zero of=/root/archivo_SA20 bs=2k count=10000
+dd if=/dev/zero of=/root/archivo_SA30 bs=3k count=10000
+
+#asociar los dispositivos con los ficheros generados
+losetup /dev/loop0 /root/archivo_SA20
+losetup /dev/loop1 /root/archivo_SA30
+
+#comprobamos que la configuracion se realizo con exito
+fdisk -l /dev/loop0 /dev/loop1
+
+#creacion de archivos, formateo logico de las particiones
+mke2fs -c /dev/loop0 -t ext3 -L LABEL_ext3
+mke2fs -c /dev/loop1 -t ext4 -L LABEL_ext4
+
+#ajuste de sistemas de archivos tune2fs
+tune2fs -l <dispositivo> -> muestra por pantalla el contenido del sperbloque
+tune2fs -c max-mount-counts <dispositivo> -> establece el numero maximo de montajes que puede realizar sin que se realice una comprobacion de la consistencia del SA
+tune2fs -L label <dispositivo> -> poner una etiqueta al SA
+
+tune2fs -C 5 -> hace como que tiene 5 montajes
+tune2fs -r 10000 -u username -> asignamos 10000 bloques al usuario username
+
+# <file system> <mount point> <type> <options> <dump> <pass>
+
+• <file system>, es el número que identifica el archivo especial de bloques .
+• <mount point>, es el directorio que actua como punto de montaje.
+• <type>, tipo de sistema de archivos (ext2, ext3, ext4, vfat, iso9660, swap, nfs, etc.)
+• <options>, son las opciones que se utilizarán en el proceso de montaje. Se especifican como una lista separada por comas y sin espacios.
+• <dump>, normalmente no se usa, pero si su valor es distinto de 0 indica la frecuencia con la que se realizará una copia de seguridad del SA.
+• <pass> , durante el arranque del sistema este campo especifica el orden en el que la orden fsck realizará las comprobaciones sobre los SAs.
+
+• rw. Lectura-escritura
+• ro. Sólo lectura
+• suid/nosuid. Permitido el acceso en modo SUID, o no permitido
+• auto/noauto. Montar automáticamente o no montar automáticamente (ni ejecutando mount -a)
+• exec/noexec. Permitir la ejecución de ficheros, o no permitir
+• usrquota, grpquota. Cuotas de usuario y de grupo
+• defaults = rw,suid,dev,exec,auto,nouser,async
+• user, users, owner. Permitir a los usuarios montar un sistema de archivos
+• uid=500, gid=100. Propietario y grupo propietario de los archivos del SA.
+• umask. Máscara para aplicar los permisos a los archivos.
+
+APT & YUM
+yum list -> Lista los paquetes disponibles en los repositorios para su instalación
+yum list installed -> Lista los paquetes actualmente instalados 
+yum list updates -> Muestra todos los paquetes con actualizaciones disponibles en los repositorios para su instalación
+yum install <nombre-paquete> -> Instala el paquete cuyo nombre es especificado
+yum update -> Se actualizan todos los paquetes instalados
+yum remove <nombre-paquete> -> Elimina el paquete cuyo nombre es especificado, así como los paquetes que dependen de éste
+
+rpm <opciones> <nombres-paquetes>
+rpm -i <nombre-archivo-paquete> → instalar nuevos paquetes
+rpm -e <nombre-paquete> → elimina paquetes instalados
+rpm -U <nombre-archivo-paquete> → actualiza paquetes instalados y elimina la versión previa instalada
+rpm -F <nombre-servidor-HTTP/FTP> → Actualiza paquetes instalados descargando del servidor 
+rpm -qa | grep <parte-nombre-paquete-buscado> | sort → busca paquete instalados por su nombre o parte
+rpm -qi <nombre-paquete> → Muestra informacion precisa del paquete instalado
+rpm -V <nombre-paquete> → Consulta en la bd para verificar si un paquete está instalado
+
+CUOTAS
+
+Las cuotas de disco permiten limitar el número de recursos de un SA que utilizará un usuario. Para trabajar con cuotas hay que instalar quota. 
+Los límites para usuarios y/o grupos y para bloques y/o i-nodos se establecen como:
+    • Límite hard → el usuario no puede sobrepasarlo. Si se sobrepasa el sistema no le permitirá usar más bloques.
+    • Límite soft → Se puede sobrepasar el límite durante cierto tiempo y debe ser inferior al límite hard. Después de un tiempo este límite se transforma en hard.
+Para asignar cuotas a un usuario: quota <username> y para ver las estadísticas de las cuotas de todos los usuarios repquota <SA>.

@@ -1,0 +1,3 @@
+pagina 80 flags para st_mode: como que para trabajar con ellos, nuevas asignaciones, comparaciones, etc
+
+permiso de ejecucion ???????
