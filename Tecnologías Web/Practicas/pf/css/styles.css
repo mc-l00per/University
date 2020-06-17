@@ -1,0 +1,216 @@
+body{
+  background-image: url("../image/textura_menu_index.png");
+  padding: 10%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  text-align: center;
+}
+
+header{
+  background-color: #333333;
+  text-align: center;
+  color: white;
+  margin-bottom: 1%;
+  display: inline-block;
+  width: 100%;
+}
+
+html body header form article {
+  display: inline-flex;
+  margin: auto;
+  padding: 10px;
+  width: 100%;
+}
+
+html body header form article label{
+  width: 50%;
+}
+
+html body header form button{
+  margin: 20px;
+}
+
+#menu{
+    background-color: #333333;
+    margin-bottom: 1%;
+}
+
+#menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+    display: inline-flex;
+}
+
+#menu li {
+    padding: 10px;
+}
+
+#menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+#menu li a:hover {
+    background-color: #111111;
+    display: inline-grid;
+}
+
+#menu li a:hover > ul {
+    display: block;
+}
+
+footer {
+    text-decoration: none;
+    width: 100%;
+    margin-top: 1%;
+    margin-bottom: 5%;
+    padding-top: 10px;
+    padding-buttom: 10px;
+    background-color: #333333;
+    color: white;
+    overflow: hidden;
+    display: inline-flex;
+}
+
+#enlace-footer {
+  margin: auto;
+}
+
+html body footer#footer a {
+  margin-right: auto;
+}
+
+footer img {
+  width: 30px;
+}
+
+#enlace-footer {
+  margin: auto;
+}
+
+html body article#menu ul#menuPrincipal li ul#submenu  {
+    display: inline-grid;
+}
+
+#contenido{
+  background-color: #333333;
+  color: white;
+  padding: 10px;
+}
+
+#componente {
+  display: block;
+  margin: 5%;
+  padding-bottom: 5%;
+  border-bottom: solid;
+}
+
+#componentes-detalles {
+  display: inline-flex;
+  width: 100%;
+  margin: auto;
+}
+
+#componentes-detalles-ext {
+  display: grid;
+  width: 50%;
+}
+
+#componentes-img {
+  width: 50%;
+}
+
+#enlace-disco {
+  display: inline-flex;
+  width: 100%;
+}
+
+#enlace-disco img {
+  margin: auto;
+}
+
+#enlace-disco section {
+  display: inline-grid;
+  width: 50%;
+
+}
+
+#discografia-disco {
+  display: inline-grid;
+  width: 100%;
+}
+
+#disco section#detalles-disco{
+  display: inline-flex;
+}
+
+#lista-canciones {
+  margin-top: 1%;
+  display: inline-flex;
+}
+
+#mitad-lista {
+  width: 50%;
+}
+
+#cacion {
+  display: inline-flex;
+}
+
+h5 {
+  margin: 2%;
+}
+
+h3 {
+  margin: 4%;
+}
+
+h4 {
+  margin: 4%;
+}
+
+#detalles {
+  display: inline-grid;
+  margin: 5%;
+
+}
+
+html body article#contenido section#componente article a button {
+  margin: 5%;
+}
+
+#componentes-editar{
+  width: 100%;
+}
+
+#componentes-editar form{
+  width: 100%;
+  display: inline-grid;
+}
+
+#componentes-editar form div {
+  width: 100%;
+  display: inline-flex;
+}
+div label {
+  width: 45%;
+}
+
+#componentes-editar form div input {
+  width: 45%;
+}
+
+#boton {
+  padding: 5%;
+}
+
+#textarea {
+  width: 45%;
+  height: 500px;
+}
