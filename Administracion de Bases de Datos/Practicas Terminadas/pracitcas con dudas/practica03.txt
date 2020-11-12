@@ -1,3 +1,0 @@
-problema a la hora de detener una instancia ya que no se detiene se mantiene conectada (mediante el interprese manager)
-
-

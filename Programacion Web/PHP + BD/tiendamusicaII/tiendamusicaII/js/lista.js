@@ -1,3 +1,0 @@
-/*
-    script para mostrar la lista de canciones
- */

@@ -1,7 +1,0 @@
-practica 02
-  a la hora de crear o editar uno desde oracle se produce un error y no me deja proseguir.
-  
-practica 03
-  al finalizar la instancias desde oracle se queda iniciada y no se detiene
-  
- 
