@@ -10,12 +10,12 @@ Course conducted with Maria Angustias.
 	Universidad Politécnica de Madrid  
 	18-05-2016
 - Exercise relationship:
-	- Subject 2
-	- Subject 3
+	- Chapter 2
+	- Chapter 3
 - Summary:
-	- Subject 1
-	- Subject 2
-	- Subject 3
+	- Chapter 1
+	- Chapter 2
+	- Chapter 3
 ## Practices
 - Module 1
 - Module 2
