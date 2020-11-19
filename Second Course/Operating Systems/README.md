@@ -10,7 +10,7 @@ Course conducted with Maria Angustias.
 	Universidad Politécnica de Madrid  
 	18-05-2016
 - Exercise relationship:
-	- Part 2
+	- Chapter 2
 	- Chapter 3
 - Summary:
 	- Chapter 1
