@@ -9,8 +9,8 @@ Pedro de Miguel Anasagasti y Fernando Pérez Costoya
 	Escuela Técnica Superior de Informática  
 	Universidad Politécnica de Madrid  
 	18-05-2016
-	- Exercise relationship:
-	-- Subject 2
-	-- Subject 3
+- Exercise relationship:
+ - Subject 2
+ - Subject 3
 ## Practices
 
