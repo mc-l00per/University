@@ -17,6 +17,4 @@ Course conducted with Maria Angustias.
 	- Subject 2
 	- Subject 3
 ## Practices
-- Module 1
-- Module 2
-- Memory
+
