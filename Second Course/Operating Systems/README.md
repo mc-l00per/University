@@ -10,7 +10,11 @@ Pedro de Miguel Anasagasti y Fernando Pérez Costoya
 	Universidad Politécnica de Madrid  
 	18-05-2016
 - Exercise relationship:
- - Subject 2
- - Subject 3
+	- Subject 2
+	- Subject 3
+- Summary:
+	- Subject 1
+	- Subject 2
+	- Subject 3
 ## Practices
 
