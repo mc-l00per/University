@@ -1,0 +1,28 @@
+\begin{thebibliography}{1}
+
+\bibitem{4}
+{IBM} {B}lueprint: {KVM} {S}ecurity {F}irst {E}dition.
+\newblock 2011.
+
+\bibitem{5}
+{IBM} {B}lueprint: {KVM} {T}unning {KVM} for performance.
+\newblock 2011.
+
+\bibitem{7}
+{L}inuxcon: {S}ecure virtualization with s{V}irt.
+\newblock 2011.
+
+\bibitem{6}
+{K}ernelthread.com: {A} {T}aste of {C}omputer {S}ecurity by {A}mit {S}ingh.
+\newblock 2012.
+
+\bibitem{1}
+Fernando Picouto Jacinto Grijalba Maikel Mayan Ángel García Eduardo Inza y
+  Carlos Alberto~Barbero Antonio~Ángel Ramos, Jean Paul García-Morán.
+\newblock {I}nstala, administra, securiza y virtualiza {ENTORNOS LINUX}, 2009.
+
+\bibitem{3}
+Trent R. Hein y Ben~Whaley Evi~Nemeth, Garth~Snyder.
+\newblock {U}nix {A}nd {L}inux {S}ystem {A}dministration {H}andbook, 2011.
+
+\end{thebibliography}

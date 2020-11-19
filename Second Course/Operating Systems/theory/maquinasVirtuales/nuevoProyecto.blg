@@ -1,0 +1,75 @@
+This is BibTeX, Version 0.99d (TeX Live 2017/Arch Linux)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: nuevoProyecto.aux
+The style file: plain.bst
+Database file #1: bibliografia.bib
+Too many commas in name 1 of "Antonio Ángel Ramos, Jean Paul García-Morán, Fernando Picouto, Jacinto Grijalba, Maikel Mayan, Ángel García, Eduardo Inza y Carlos Alberto Barbero" for entry 1
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "Antonio Ángel Ramos, Jean Paul García-Morán, Fernando Picouto, Jacinto Grijalba, Maikel Mayan, Ángel García, Eduardo Inza y Carlos Alberto Barbero" for entry 1
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "Antonio Ángel Ramos, Jean Paul García-Morán, Fernando Picouto, Jacinto Grijalba, Maikel Mayan, Ángel García, Eduardo Inza y Carlos Alberto Barbero" for entry 1
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "Antonio Ángel Ramos, Jean Paul García-Morán, Fernando Picouto, Jacinto Grijalba, Maikel Mayan, Ángel García, Eduardo Inza y Carlos Alberto Barbero" for entry 1
+while executing---line 1049 of file plain.bst
+Warning--to sort, need author or key in 6
+Warning--to sort, need author or key in 5
+Warning--to sort, need author or key in 7
+Warning--to sort, need author or key in 4
+Warning--empty author in 4
+Warning--empty journal in 4
+Warning--empty author in 5
+Warning--empty journal in 5
+Warning--empty author in 7
+Warning--empty journal in 7
+Warning--empty author in 6
+Warning--empty journal in 6
+Too many commas in name 1 of "Antonio Ángel Ramos, Jean Paul García-Morán, Fernando Picouto, Jacinto Grijalba, Maikel Mayan, Ángel García, Eduardo Inza y Carlos Alberto Barbero" for entry 1
+while executing---line 1090 of file plain.bst
+Too many commas in name 1 of "Antonio Ángel Ramos, Jean Paul García-Morán, Fernando Picouto, Jacinto Grijalba, Maikel Mayan, Ángel García, Eduardo Inza y Carlos Alberto Barbero" for entry 1
+while executing---line 1090 of file plain.bst
+Too many commas in name 1 of "Antonio Ángel Ramos, Jean Paul García-Morán, Fernando Picouto, Jacinto Grijalba, Maikel Mayan, Ángel García, Eduardo Inza y Carlos Alberto Barbero" for entry 1
+while executing---line 1090 of file plain.bst
+Too many commas in name 1 of "Antonio Ángel Ramos, Jean Paul García-Morán, Fernando Picouto, Jacinto Grijalba, Maikel Mayan, Ángel García, Eduardo Inza y Carlos Alberto Barbero" for entry 1
+while executing---line 1090 of file plain.bst
+You've used 6 entries,
+            2118 wiz_defined-function locations,
+            516 strings with 4860 characters,
+and the built_in function-call counts, 1066 in all, are:
+= -- 94
+> -- 18
+< -- 0
++ -- 10
+- -- 4
+* -- 58
+:= -- 157
+add.period$ -- 12
+call.type$ -- 6
+change.case$ -- 20
+chr.to.int$ -- 0
+cite$ -- 18
+duplicate$ -- 54
+empty$ -- 117
+format.name$ -- 4
+if$ -- 227
+int.to.chr$ -- 0
+int.to.str$ -- 6
+missing$ -- 4
+newline$ -- 27
+num.names$ -- 4
+pop$ -- 42
+preamble$ -- 1
+purify$ -- 14
+quote$ -- 0
+skip$ -- 44
+stack$ -- 0
+substring$ -- 30
+swap$ -- 2
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 24
+warning$ -- 12
+while$ -- 4
+width$ -- 7
+write$ -- 46
+(There were 8 error messages)
